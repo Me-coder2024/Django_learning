@@ -1,0 +1,86 @@
+🧠 What is Django? (Very first idea)
+
+Django is a Python web framework.
+
+That means:
+
+Python = the programming language
+
+Web = websites (like Instagram, YouTube, school portals)
+
+Framework = a toolbox + rules that help you build websites faster and safely
+
+
+
+Django’s job
+
+Django:
+
+Receives the request
+
+Decides what page to show
+
+Talks to the database if needed
+
+Sends HTML back to the browser
+
+
+🧱 Django uses MVT (core concept)
+
+Django is based on MVT:
+
+Part	Meaning	What it does
+M	Model	Database (data)
+V	View	Logic (what happens)
+T	Template	HTML (what user sees)
+
+👉 Think:
+
+Model = data
+
+View = brain
+
+Template = face
+
+ORM STRUCTURE (Object Relation Mangment)
+Model (Python Class)
+⬇
+ORM
+⬇
+Database Table
+
+
+What are migrations?
+
+Migrations are instructions Django uses to:
+
+Create tables
+
+Update tables
+
+Track database changes
+
+
+1. Model (Data Layer)
+
+    Purpose: Manages the database structure and data logic.
+
+    Key Task: Defines the data fields (like CharField, DateTimeField) and behaviors.
+
+    Note: Django uses an ORM (Object-Relational Mapper), so you can interact with your database using Python code instead of writing raw SQL.
+
+2. View (Logic Layer)
+
+    Purpose: The "brain" of the application.
+
+    Key Task: Receives HTTP requests, fetches data from the Model, and sends it to the Template.
+
+    Note: This is where your business logic lives (e.g., "only show posts if the user is logged in").
+
+3. Template (Presentation Layer)
+
+    Purpose: Handles the User Interface (UI).
+
+    Key Task: Displays data to the user using HTML and DTL (Django Template Language).
+
+    Note: DTL allows you to use logic like {% if %} or {% for %} directly inside your HTML.
