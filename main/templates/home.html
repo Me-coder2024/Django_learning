@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+    <style>
+        /* Modern Reset and Background */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow: hidden;
+        }
+
+        /* The Creative Glass Card */
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        h1 {
+            color: white;
+            font-size: 3rem;
+            letter-spacing: 5px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* Creative Button Styling */
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            color: #764ba2;
+            background: white;
+            padding: 12px 35px;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+            background: #f0f0f0;
+            letter-spacing: 1px;
+        }
+
+        /* Smooth Entry Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* Decorative Background Bubbles */
+        .bg-circle {
+            position: absolute;
+            z-index: -1;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-circle" style="width: 300px; height: 300px; top: -100px; left: -100px;"></div>
+    <div class="bg-circle" style="width: 200px; height: 200px; bottom: -50px; right: -50px;"></div>
+
+    <div class="card">
+        <h1>WELCOME</h1>
+        <a href="{% url 'login_page' %}" class="btn">Click here to Enter</a>
+    </div>
+
+</body>
+</html>

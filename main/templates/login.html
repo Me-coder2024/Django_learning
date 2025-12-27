@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Secure Access</title>
+    <style>
+        /* matching the Home Page background */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .login-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 40px;
+            border-radius: 20px;
+            width: 350px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        h1 {
+            color: white;
+            margin-bottom: 30px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .input-group {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.85rem;
+            margin-left: 5px;
+            text-transform: uppercase;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            margin-top: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            color: white;
+            outline: none;
+            transition: 0.3s;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: #fff;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 10px;
+            background: #fff;
+            color: #764ba2;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            background: #f0f0f0;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-card">
+        <h1>LOGIN</h1>
+        
+        <form method="POST" action="{% url 'login_page' %}">
+            {% csrf_token %}
+            
+            <div class="input-group">
+                <label>Username</label>
+                <input type="text" name="username" required placeholder="Enter your username">
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" name="password" required placeholder="••••••••">
+            </div>
+
+            <button type="submit">Log In</button>
+        </form>
+    </div>
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const message = document.getElementById('message');
+    
+        loginForm.addEventListener('submit', function(event) {
+            // 1. Prevent the default form submission (page refresh)
+            event.preventDefault();
+    
+            // 2. Capture the data from the inputs
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+    
+            // 3. Simple validation check
+            if (username === "admin" && password === "12345") {
+                message.textContent = "Login successful! Redirecting...";
+                message.style.color = "green";
+                window.location.href = "{% url 'home_page' %}"
+                
+                // In a real app, you would send this data to a server here.
+                // window.location.href = "dashboard.html"; 
+            } else {
+                message.textContent = "Invalid username or password.";
+                message.style.color = "red";
+            }
+        });
+    </script>
+</body>
+</html>
